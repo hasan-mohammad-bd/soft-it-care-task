@@ -3,12 +3,16 @@ import { API_URL } from "@/components/api/Api";
 import { fetchIpAddress } from "@/components/fatchIP/FatchIp";
 import GetBrowserInfo from "@/components/getBrowserInfo/GetBrowserInfo";
 import axios from "axios";
+import { LoginContext } from "../context/LoginContext";
+import { useContext } from "react";
 
 
 
 const Login = () => {
+  const {handleSubmit, receivedData} = useContext(LoginContext);
+  console.log(receivedData);
 
-  const handleSubmit = async (e) => {
+/*   const handleSubmit = async (e) => {
     let ipAddress = fetchIpAddress();
     let browserName = GetBrowserInfo();
   
@@ -41,7 +45,7 @@ const Login = () => {
       console.error(error);
     }
     e.target.reset();
-  };
+  }; */
   return (
     <div>
       <form onSubmit={handleSubmit}>
