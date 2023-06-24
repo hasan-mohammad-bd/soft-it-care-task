@@ -5,10 +5,14 @@ import GetBrowserInfo from "@/components/getBrowserInfo/GetBrowserInfo";
 import axios from "axios";
 import { LoginContext } from "../context/LoginContext";
 import { useContext } from "react";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from "next/router";
 
 
 
 const Login = () => {
+
   const {handleSubmit, receivedData} = useContext(LoginContext);
   console.log(receivedData);
 
@@ -52,6 +56,7 @@ const Login = () => {
         <input type="email" />
         <input type="password" />
         <input type="submit" value="Login" />
+        <ToastContainer/>
       </form>
     </div>
   );

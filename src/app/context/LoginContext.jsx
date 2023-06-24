@@ -3,12 +3,14 @@ import { API_URL } from "@/components/api/Api";
 import { fetchIpAddress } from "@/components/fatchIP/FatchIp";
 import GetBrowserInfo from "@/components/getBrowserInfo/GetBrowserInfo";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 import { createContext, useState } from "react"
 
 export const LoginContext = createContext()
 
 export const LoginProvider = ({children})=>{
+  const router = useRouter()
   const [receivedData, setReceivedData] = useState('')
 
     const handleSubmit = async (e) => {
@@ -43,6 +45,7 @@ export const LoginProvider = ({children})=>{
         } catch (error) {
           console.error(error);
         }
+        window.location.reload()
         e.target.reset();
       };
 
