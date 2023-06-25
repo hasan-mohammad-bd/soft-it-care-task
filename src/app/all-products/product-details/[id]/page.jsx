@@ -22,7 +22,7 @@ const ProductDetails = ({params}) => {
         redirect: "follow",
       };
       fetch(
-        `${API_URL}/client/products/${id}`,
+        `${API_URL}/client/products/`,
         requestOptions
       )
         .then((response) => response.json())

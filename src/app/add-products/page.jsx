@@ -2,9 +2,12 @@
 
 import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
-const token = localStorage.getItem("token_01");
-const store_id = localStorage.getItem("the_shop");
-const id = localStorage.getItem("the_id");
+if(typeof window !== 'undefined'){
+  const token = localStorage.getItem("token_01");
+  const store_id = localStorage.getItem("the_shop");
+  const id = localStorage.getItem("the_id");
+}
+
 import { useForm } from "react-hook-form";
 import { API_URL } from "@/components/api/Api";
 
