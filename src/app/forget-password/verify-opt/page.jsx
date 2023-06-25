@@ -11,6 +11,8 @@ const VerifyOtp = () => {
   const { setReceivedData, receivedData, handleSubmit } =
     useContext(ForgetPassContext);
 
+    const router = useRouter();
+
     const handleOTPSubmit = async (e) => {
         e.preventDefault();
     
@@ -36,13 +38,16 @@ const VerifyOtp = () => {
               headers: headers,
             }
           );
+          console.log(response.data);
           toast(response.data.message);
         } catch (error) {
-          toast.error(error.message)
+          toast(error.message)
         }
     
         
         e.target.reset();
+        router.push('/forget-password/change-password')
+        
         
       };
   return (
