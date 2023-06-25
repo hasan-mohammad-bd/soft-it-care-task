@@ -34,6 +34,7 @@ const SignUp = () => {
     const headers = {
       "Content-Type": "multipart/form-data;",
       "X-Requested-With": "XMLHttpRequest",
+      
     };
 
     const data = {

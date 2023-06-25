@@ -12,6 +12,7 @@ export const LoginContext = createContext()
 export const LoginProvider = ({children})=>{
   const router = useRouter()
   const [receivedDatas, setReceivedData] = useState('')
+ 
 
     const handleSubmit = async (e) => {
         let ipAddress = fetchIpAddress();
@@ -41,13 +42,17 @@ export const LoginProvider = ({children})=>{
           setReceivedData(response.data)
           if (typeof window !== "undefined") {
             window.localStorage.setItem("token_01", response.data.token);
+            window.localStorage.setItem("the_shop", response.data.shop_id);
+            window.localStorage.setItem("the_id", response.data.id);
           }
         } catch (error) {
           console.error(error);
         }
         setTimeout(() => {
           window.location.reload()
-        }, 1500);
+        }, 500);
+
+
         // window.location.reload()
         e.target.reset();
         router.push('/')

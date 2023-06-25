@@ -38,15 +38,16 @@ export const ForgetPassProvider = ({children})=>{
           );
           
           toast(response.data.message);
+          setTimeout(() => {
+            router.push('/forget-password/verify-opt')
+        }, 500);
         } catch (error) {
           toast.error(error.message)
         }
     
         
         e.target.reset();
-        setTimeout(() => {
-            router.push('/forget-password/verify-opt')
-        }, 500);
+
         
       };
   

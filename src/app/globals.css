@@ -4,28 +4,35 @@
 
 
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+input {
+  max-width: 400px;
+  padding: 10px;
+  outline: none;
+  box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
+  margin-bottom: 15px;
 }
 
+button{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 
+  padding: 10px 20px;
+  transition: all 0.3s ease-in;
+}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+button:hover{
+  background-color: white;
+  color: black;
+
 }
