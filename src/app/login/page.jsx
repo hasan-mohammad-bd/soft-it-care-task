@@ -13,8 +13,9 @@ import { useRouter } from "next/router";
 
 const Login = () => {
 
-  const {handleSubmit, receivedData} = useContext(LoginContext);
-  console.log(receivedData);
+  const {handleSubmit, receivedDatas} = useContext(LoginContext);
+ 
+
 
 /*   const handleSubmit = async (e) => {
     let ipAddress = fetchIpAddress();

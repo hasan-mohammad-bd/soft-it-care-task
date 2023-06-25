@@ -14,7 +14,7 @@ const ForgetPassword = () => {
     setReceivedData(event.target.value);
   };
 
-  console.log(receivedData);
+  
   
  
  /*  const handleSubmit = async (e) => {
@@ -55,7 +55,7 @@ const ForgetPassword = () => {
         <input  type="submit" value="Send OTP" />
       </form>
 
-      <ToastContainer />
+
     </div>
   );
 };

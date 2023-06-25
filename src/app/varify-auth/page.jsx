@@ -7,9 +7,10 @@ import React, { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 
-const VerifyOtp = () => {
+const VerifyAuth = () => {
   const { setReceivedData, receivedData, handleSubmit } =
     useContext(ForgetPassContext);
+    const router = useRouter()
 
     const handleOTPSubmit = async (e) => {
         e.preventDefault();
@@ -26,11 +27,11 @@ const VerifyOtp = () => {
           phone,
           otp
         };
-        
+        console.log(data);
     
         try {
           const response = await axios.post(
-            `${API_URL}/client/otp-verify`,
+            `${API_URL}/auth/verify`,
             data,
             {
               headers: headers,
@@ -43,6 +44,8 @@ const VerifyOtp = () => {
     
         
         e.target.reset();
+        router.push('/login')
+
         
       };
   return (
@@ -56,4 +59,4 @@ const VerifyOtp = () => {
   );
 };
 
-export default VerifyOtp;
+export default VerifyAuth;

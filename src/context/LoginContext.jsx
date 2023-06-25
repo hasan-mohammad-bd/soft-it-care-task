@@ -11,7 +11,7 @@ export const LoginContext = createContext()
 
 export const LoginProvider = ({children})=>{
   const router = useRouter()
-  const [receivedData, setReceivedData] = useState('')
+  const [receivedDatas, setReceivedData] = useState('')
 
     const handleSubmit = async (e) => {
         let ipAddress = fetchIpAddress();
@@ -53,7 +53,7 @@ export const LoginProvider = ({children})=>{
         router.push('/')
       };
 
-      return <LoginContext.Provider value={{handleSubmit, receivedData}}>
+      return <LoginContext.Provider value={{handleSubmit, receivedDatas}}>
         <div>{children}</div>
     </LoginContext.Provider>
 }

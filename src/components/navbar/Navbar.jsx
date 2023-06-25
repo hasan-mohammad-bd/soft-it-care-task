@@ -7,10 +7,11 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 
 const Navbar = () => {
-  const {handleSubmit, receivedData} = useContext(LoginContext);
+  const {handleSubmit, receivedDatas} = useContext(LoginContext);
+  
   const token = localStorage?.getItem("token_01");
 
-  console.log(receivedData.email);
+  console.log(receivedDatas.email);
   const router = useRouter();
   const [receivedToken, setReceivedToken] = useState(token || null);
 
@@ -37,7 +38,7 @@ const Navbar = () => {
     <nav className="flex justify-between items-center py-7 bg-gray-400 container mx-auto">
       <div>logo</div>
       <div>others</div>
-      <div>email: {receivedData?.email}</div>
+      <div>email: {receivedDatas?.email}</div>
       {receivedToken && <button onClick={Logout}>Logout</button>}
     </nav>
   );

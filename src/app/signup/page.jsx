@@ -4,15 +4,24 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { ForgetPassContext } from "@/context/ForgetPassContext";
 
 
 
 
 const SignUp = () => {
 
+  const { setReceivedData, receivedData, handleSubmit} = useContext(ForgetPassContext)
+
+  const handleInputChange = (event) => {
+    setReceivedData(event.target.value);
+  };
+
+
     const router = useRouter();
 
-    const handleSubmit = async (e) => {
+    const handleSignUpSubmit = async (e) => {
 
 
     
@@ -50,23 +59,56 @@ const SignUp = () => {
         const response = await axios.post(`${API_URL}/signup`, data, {
           headers: headers,
         });
+        toast.success('SignUp Success')
         console.log(response.data);;
         
       } catch (error) {
-        console.error(error);
+        toast.error('SignUp failed')
       }
-      router.push("/login");
-      toast.success('Successfully Registered! Please login')
+      
       e.target.reset();
+
+
+        
+    
+        
+    
+      
+    
+        const data_2 = {
+          phone
+        };
+    
+        try {
+          const response = await axios.post(
+            `${API_URL}/client/forget-password`,
+            data_2,
+            {
+              headers: headers,
+            }
+          );
+          toast(response.data.message);
+        } catch (error) {
+          toast.error(error.message)
+        }
+    
+        
+        e.target.reset();
+        router.push('/varify-auth')
+      
+
+      
+
+
     };
 
   return (
     <div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSignUpSubmit}>
         <input placeholder="email" type="email" />
         <input placeholder="name" type="text" />
-        <input placeholder="phone" type="phone" />
+        <input onChange={handleInputChange} placeholder="phone" type="phone" />
         <input placeholder="password" type="password" />
         <input placeholder="Confirm Password" type="password" />
         <input placeholder="Store Name" type="text" />
