@@ -3,7 +3,7 @@ import { API_URL } from "@/components/api/Api";
 import { fetchIpAddress } from "@/components/fatchIP/FatchIp";
 import GetBrowserInfo from "@/components/getBrowserInfo/GetBrowserInfo";
 import axios from "axios";
-import { LoginContext } from "../context/LoginContext";
+import { LoginContext } from "../../context/LoginContext";
 import { useContext } from "react";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
