@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-
+// const token = localStorage.getItem("token_01");
+const token = "sfsdfsdfsdf"
 
 
 const Navbar = () => {
 
   
-  const token = window.localStorage?.getItem("token_01");
+  
 ;
   const router = useRouter();
   const [receivedToken, setReceivedToken] = useState(token || null);
