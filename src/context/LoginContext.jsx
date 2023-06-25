@@ -53,14 +53,14 @@ export const LoginProvider = ({children})=>{
         } catch (error) {
           console.error(error);
         }
-/*         setTimeout(() => {
+        setTimeout(() => {
           window.location.reload()
-        }, 500); */
+        }, 1000);
 
 
 
-        // e.target.reset();
-        // router.push('/')
+        e.target.reset();
+        router.push('/all-products')
       };
 
       return <LoginContext.Provider value={{handleSubmit, receivedDatas, theData}}>

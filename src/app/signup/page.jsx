@@ -4,10 +4,12 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ForgetPassContext } from "@/context/ForgetPassContext";
 
 const SignUp = () => {
+ const [success, setSuccess] = useState(false)
+ console.log(success);
   const { setReceivedData, receivedData, handleSubmit } =
     useContext(ForgetPassContext);
 
@@ -52,11 +54,14 @@ const SignUp = () => {
       });
       toast.success("SignUp Success");
       console.log(response.data);
+      setSuccess(response?.data?.success)
     } catch (error) {
-      toast.error("SignUp failed");
+      toast.error(error.message);
+
     }
 
-    e.target.reset();
+  
+
 
     const data_2 = {
       phone,
@@ -80,7 +85,8 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="mt-10">
+      <h3 className="my-5 text-xl font-bold text-center">Please Sign Up</h3>
       <form onSubmit={handleSignUpSubmit}>
         <input placeholder="email" type="email" />
         <input placeholder="name" type="text" />
@@ -88,7 +94,7 @@ const SignUp = () => {
         <input placeholder="password" type="password" />
         <input placeholder="Confirm Password" type="password" />
         <input placeholder="Store Name" type="text" />
-        <input type="submit" value="Register" />
+        <input className="bg-black hover:bg-slate-500 rounded text-white" type="submit" value="Register" />
         <ToastContainer />
       </form>
     </div>

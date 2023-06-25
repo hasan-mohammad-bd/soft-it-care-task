@@ -49,11 +49,12 @@ const VerifyAuth = () => {
         
       };
   return (
-    <div>
+    <div className="mt-10">
+      <h3 className="my-5 text-xl font-bold text-center">Verify Your Auth</h3>
       <form onSubmit={handleOTPSubmit}>
         <input value={receivedData} placeholder="phone" type="phone" />
         <input placeholder="Type OTP" type="text" />
-        <input type="submit" value="Verify OTP" />
+        <input className="bg-black rounded text-white" type="submit" value="Verify OTP" />
       </form>
     </div>
   );

@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react';
 const token = localStorage.getItem('token_01')
 const shop_id = localStorage.getItem('the_shop')
 
+if(!token){
+    router.push('/login')
+  }
 const ProductDetails = ({params}) => {
     const { id } = params;
     const [product, setProduct] = useState([]);

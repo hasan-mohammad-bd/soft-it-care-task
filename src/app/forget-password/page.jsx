@@ -49,10 +49,11 @@ const ForgetPassword = () => {
     router.push('/forget-password/verify-opt')
   }; */
   return (
-    <div>
+    <div className="mt-10">
+            <h3 className="my-5 text-xl font-bold text-center">Please Give Your Phone Number</h3>
       <form onSubmit={handleSubmit}>
       <input onChange={handleInputChange} placeholder="phone" type="phone" />
-        <input  type="submit" value="Send OTP" />
+        <input className="bg-black rounded text-white"  type="submit" value="Send OTP" />
       </form>
 
 

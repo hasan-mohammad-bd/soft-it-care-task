@@ -15,9 +15,7 @@ input {
   max-width: 400px;
   padding: 10px;
   outline: none;
-  box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
-  -webkit-box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
-  -moz-box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-bottom: 15px;
 }
 
@@ -40,9 +38,7 @@ button:hover{
 .list_1{
   margin-top: 10px;
   background-color: rgb(236, 236, 236);
-  box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
-  -webkit-box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
-  -moz-box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-bottom: 15px;
   border-radius: 5px;
 }
@@ -55,9 +51,7 @@ button:hover{
 
 .Cd{
   padding: 20px;
-  box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
-  -webkit-box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
-  -moz-box-shadow: -9px 15px 38px -10px rgba(0,0,0,0.75);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-bottom: 15px;
   border-radius: 5px;
 }

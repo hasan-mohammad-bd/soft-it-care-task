@@ -70,7 +70,7 @@ const ProductList = () => {
               <button
                 className=""
                 onClick={() => {
-                  update(product.id);
+                  router.push(`/all-products/update-product/${product.id}`)
                 }}
               >
                 Update

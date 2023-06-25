@@ -45,12 +45,13 @@ const ChangePassword = () => {
     router.push('/login')
   };
   return (
-    <div>
+    <div className="mt-10">
+      <h3 className="my-5 text-xl font-bold text-center">Please Reset Your Password</h3>
       <form onSubmit={handlePasswordChange}>
         <input defaultValue={receivedData} placeholder="phone" type="phone" />
         <input placeholder="Password" type="password" />
         <input placeholder="Confirm Password" type="password" />
-        <input type="submit" value="Change Password" />
+        <input className="bg-black hover:bg-slate-400 rounded text-white" type="submit" value="Change Password" />
       </form>
     </div>
   );
