@@ -46,15 +46,15 @@ export const LoginProvider = ({children})=>{
           console.log(response.data);
           theData = response.data
           if (typeof window !== "undefined") {
-            window.localStorage.setItem("token_01", response.data.token);
-            window.localStorage.setItem("the_shop", response.data.data.shop_id);
-            window.localStorage.setItem("the_id", response.data.data.id);
+            localStorage.setItem("token_01", response.data.token);
+            localStorage.setItem("the_shop", response.data.data.shop_id);
+            localStorage.setItem("the_id", response.data.data.id);
           }
         } catch (error) {
           console.error(error);
         }
         setTimeout(() => {
-          window.location.reload()
+          location.reload()
         }, 1000);
 
 

@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
-const token = window.localStorage.getItem("token_01");
-const shop_id = window.localStorage.getItem("the_shop");
-const id = window.localStorage.getItem("the_id");
+const token = localStorage.getItem("token_01");
+const shop_id = localStorage.getItem("the_shop");
+const id = localStorage.getItem("the_id");
 
 
 const ProductList = () => {
