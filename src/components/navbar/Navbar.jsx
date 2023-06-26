@@ -1,5 +1,4 @@
 'use client'
-
 import DataContext from "@/context/DataContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
