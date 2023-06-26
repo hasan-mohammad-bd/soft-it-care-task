@@ -1,8 +1,7 @@
 'use client'
 import { API_URL } from '@/components/api/Api';
 import React, { useEffect, useState } from 'react';
-const token = localStorage.getItem('token_01')
-const shop_id = localStorage.getItem('the_shop')
+
 
 if(!token){
     router.push('/login')

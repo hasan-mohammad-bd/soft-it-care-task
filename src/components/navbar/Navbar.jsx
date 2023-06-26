@@ -1,33 +1,28 @@
 'use client'
 
+import DataContext from "@/context/DataContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-const token = localStorage.getItem("token_01");
+import React, { useContext, useEffect, useState } from "react";
+
 
 
 
 const Navbar = () => {
+  const { allData, setAllData } = useContext(DataContext);
+  const router = useRouter()
 
 
-
-  const router = useRouter();
-  const [receivedToken, setReceivedToken] = useState(token || null);
+  
 
 
   const Logout = () => {
     
-
-      if (receivedToken) {
         localStorage.removeItem("token_01");
-        localStorage.removeItem("the_shop");
-        localStorage.removeItem("the_id");
-        setReceivedToken(null)
+        setAllData(null)
         router.push("/login");
-      } else {
-        console.log("Token not found");
-      }
-      
+
+    
 
   };
 
@@ -37,7 +32,7 @@ const Navbar = () => {
     <div className="bg-gray-100">
           <nav className="flex justify-between items-center py-7 container mx-auto">
       <div className="text-2xl font-semibold">Next.js App</div>
-      {receivedToken? <div>
+      {allData?.success? <div>
       <Link className="mr-5 Cd text-lg font-medium" href="/all-products">Products</Link>
       <Link className="mr-5 Cd text-lg font-medium" href="/add-products">Add Products</Link>
        <button onClick={Logout}>Logout</button>

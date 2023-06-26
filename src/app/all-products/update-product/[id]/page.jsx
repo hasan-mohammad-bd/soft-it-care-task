@@ -1,12 +1,14 @@
 'use client'
 import { API_URL } from '@/components/api/Api';
-import React from 'react';
+import DataContext from '@/context/DataContext';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
-const token = localStorage.getItem('token_01')
-const shop_id = localStorage.getItem('the_shop')
+/* const token = localStorage.getItem('token_01')
+const shop_id = localStorage.getItem('the_shop') */
 
 const UpdateProfiles = ({params}) => {
+
     const { id } = params;
     const {
         reset,
@@ -19,8 +21,8 @@ const UpdateProfiles = ({params}) => {
     const updateProfile = (data) => {
       const myHeaders = new Headers();
       myHeaders.append("X-Requested-With", "XMLHttpRequest");
-      myHeaders.append("authorization", token);
-      myHeaders.append("shop-id", shop_id);
+      myHeaders.append("authorization", "id");
+      myHeaders.append("shop-id", "shop_id");
 
       const formdata = new FormData();
       formdata.append("main_image", data.main_image[0], "file");

@@ -3,20 +3,67 @@ import { API_URL } from "@/components/api/Api";
 import { fetchIpAddress } from "@/components/fatchIP/FatchIp";
 import GetBrowserInfo from "@/components/getBrowserInfo/GetBrowserInfo";
 import axios from "axios";
-import { LoginContext } from "../../context/LoginContext";
+
 import { useContext } from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useRouter } from "next/router";
+;
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import DataContext from "@/context/DataContext";
 
 
 
 const Login = () => {
+  const router = useRouter()
+  const { allData, setAllData } = useContext(DataContext);
 
-  const {handleSubmit, receivedDatas} = useContext(LoginContext);
- 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+      let ipAddress = fetchIpAddress();
+      let browserName = GetBrowserInfo();
+    
+      
+      const email = e.target[0].value;
+      const password = e.target[1].value;
+    
+      const headers = {
+        "Content-Type": "multipart/form-data",
+        "X-Requested-With": "XMLHttpRequest",
+        ipaddress: JSON.stringify(ipAddress),
+        browsername: browserName,
+      };
+    
+      const data = {
+        email: email,
+        password: password,
+      };
+      
+    
+      try {
+        const response = await axios.post(`${API_URL}/login`, data, {
+          headers: headers,
+        });
 
+        console.log(response.data);
+        setAllData(response.data)
+        if (typeof window !== "undefined") {
+          localStorage.setItem("token_01", response.data.token);
+        }
+      } catch (error) {
+        toast.error("Login Failed")
+        console.error(error);
+      }
+/*       setTimeout(() => {
+        location.reload()
+      }, 1000); */
+
+
+
+      e.target.reset();
+      router.push('/all-products')
+    };
+    
   return (
     <div className="mt-10">
       <h3 className="my-5 text-xl font-bold text-center">Please Login</h3>

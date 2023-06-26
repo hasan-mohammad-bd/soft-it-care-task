@@ -1,4 +1,4 @@
-"use client"
+/* "use client"
 import { API_URL } from "@/components/api/Api";
 import { fetchIpAddress } from "@/components/fatchIP/FatchIp";
 import GetBrowserInfo from "@/components/getBrowserInfo/GetBrowserInfo";
@@ -46,15 +46,15 @@ export const LoginProvider = ({children})=>{
           console.log(response.data);
           theData = response.data
           if (typeof window !== "undefined") {
-            localStorage.setItem("token_01", response.data.token);
-            localStorage.setItem("the_shop", response.data.data.shop_id);
-            localStorage.setItem("the_id", response.data.data.id);
+            window.localStorage.setItem("token_01", response.data.token);
+            window.localStorage.setItem("the_shop", response.data.data.shop_id);
+            window.localStorage.setItem("the_id", response.data.data.id);
           }
         } catch (error) {
           console.error(error);
         }
         setTimeout(() => {
-          location.reload()
+          window.location.reload()
         }, 1000);
 
 
@@ -66,4 +66,4 @@ export const LoginProvider = ({children})=>{
       return <LoginContext.Provider value={{handleSubmit, receivedDatas, theData}}>
         <div>{children}</div>
     </LoginContext.Provider>
-}
+} */
