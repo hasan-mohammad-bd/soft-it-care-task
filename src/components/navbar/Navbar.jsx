@@ -35,7 +35,7 @@ const Navbar = () => {
       <Link className="mr-5 Cd text-lg font-medium" href="/all-products">Products</Link>
       <Link className="mr-5 Cd text-lg font-medium" href="/add-products">Add Products</Link>
        <button onClick={Logout}>Logout</button>
-      </div> : <Link className="py-3 px-5 bg-black hover:bg-slate-500 text-white rounded" href="signup">Sign Up</Link>}
+      </div> : <div className="flex gap-4 items-center justify-center"><Link className="py-3 px-5 bg-black hover:bg-slate-500 text-white rounded" href="/signup">Sign Up</Link><Link className="py-3 px-5 bg-black hover:bg-slate-500 text-white rounded" href="/login">Login</Link></div> }
       
     </nav>
     </div>
