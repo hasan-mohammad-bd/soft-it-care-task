@@ -1,5 +1,4 @@
-'use client'
-import { API_URL } from "@/components/api/Api";
+"use client"
 import DataContext from "@/context/DataContext";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -9,14 +8,14 @@ import React, { useContext, useState } from "react";
 
 
 const ProductList = () => {
+  const [products, setProducts] = useState([])
   const router = useRouter()
   const { allData, setAllData } = useContext(DataContext);
-  if(!allData?.success){
+/*   if(!allData?.success){
     router.push('/login')
-  }
+  } */
 
-  const [products, setProducts] = useState([])
-  console.log(products);
+
     const fetchData = async () => {
         const headers = {
           Authorization: `Bearer ${allData?.token}`,
@@ -51,9 +50,6 @@ const ProductList = () => {
           <div className="Cd">
             <p className="Cd-text">Product name:{product.product_name}</p>
             <p className="Cd-text">category_id:{product.category_id}</p>
-
-            
-            
             <p className="Cd-text">Product Code: {product.product_code}</p>
             <p className="Cd-text">Product Qty:{product.product_qty}</p>
             <p className="Cd-text">Price:{product.price}</p>
@@ -66,7 +62,7 @@ const ProductList = () => {
               <button
                 className=""
                 onClick={() => {
-                  router.push(`/all-products/product-details/${product.id}`)
+                  /* router.push(`/all-products/product-details/${product.id}`) */
                 }}
               >
                 Details
@@ -74,7 +70,7 @@ const ProductList = () => {
               <button
                 className=""
                 onClick={() => {
-                  router.push(`/all-products/update-product/${product.id}`)
+                  /* router.push(`/all-products/update-product/${product.id}`) */
                 }}
               >
                 Update
